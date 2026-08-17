@@ -1,0 +1,122 @@
+
+@import "tailwindcss";
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Inter", sans-serif;
+  overflow-x: hidden;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90px;
+
+  background: transparent;      /* White ki jagah transparent */
+  z-index: 9999;
+
+  backdrop-filter: blur(10px);          /* Optional */
+  -webkit-backdrop-filter: blur(10px);  /* Safari */
+}
+.hero-section {
+  min-height: 100vh;
+  padding-top: 150px;
+}
+
+.hero-title {
+  color: #943737;
+  opacity: 0;
+  transform: translateY(-40px);
+  transition: all 0.8s ease;
+  font-weight: 600;
+}
+
+.hero-title.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.hero-image {
+  opacity: 0;
+  transform: translateY(250px) scale(0.7);
+  transition: all 1s ease-out;
+  
+}
+
+.hero-image.show {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+@keyframes marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 1rem));
+  }
+}
+
+.animate-marquee {
+  display: flex;
+  width: max-content;
+  animation: marquee 18s linear infinite;
+}
+
+
+.letter {
+  
+  opacity: 0.15;
+}
+
+
+
+@keyframes spinSlow{
+
+from{
+
+transform:rotate(0deg);
+
+}
+
+to{
+
+transform:rotate(360deg);
+
+}
+
+}
+
+.animate-spin-slow{
+
+animation:spinSlow 60s linear infinite;
+
+}
+
+@keyframes spinReverse{
+
+from{
+
+transform:rotate(360deg);
+
+}
+
+to{
+
+transform:rotate(0deg);
+
+}
+
+}
+
+.animate-spin-reverse{
+
+animation:spinReverse 45s linear infinite;
+
+}
+
+
