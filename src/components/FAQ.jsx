@@ -1,12 +1,9 @@
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { ChevronUp } from "lucide-react";
-import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
-
-
 
 const faqs = [
   {
@@ -37,214 +34,328 @@ const faqs = [
 ];
 
 export default function FAQ() {
-  const [openItems, setOpenItems] = useState([0]);
+  const [openItems, setOpenItems] = useState([]);
+
   const headingRef = useRef(null);
-const faqRef = useRef([]);
-const sectionRef = useRef(null);
+  const faqRef = useRef([]);
+  const sectionRef = useRef(null);
+
   const toggleFAQ = (index) => {
-    if (openItems.includes(index)) {
-      setOpenItems(openItems.filter((item) => item !== index));
-    } else {
-      setOpenItems([...openItems, index]);
-    }
+    setOpenItems((prev) =>
+      prev.includes(index)
+        ? prev.filter((item) => item !== index)
+        : [...prev, index]
+    );
   };
-  
-useEffect(() => {
-  const ctx = gsap.context(() => {
-gsap.fromTo(
-  sectionRef.current,
-  {
-    opacity: 0,
-    y: 80,
-  },
-  {
-    opacity: 1,
-    y: 0,
-    duration: 1.2,
-    ease: "power3.out",
-    scrollTrigger: {
-      trigger: sectionRef.current,
-      start: "top 95%",
-      end: "top 70%",
-      scrub: true,
-    },
-  }
-);
-    // Heading Animation
-    gsap.fromTo(
-      headingRef.current,
-      {
-        opacity: 0,
-        y: 80,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1.2,
-        delay: 1.5,
-        ease: "power4.out",
-      }
-    );
 
-    // FAQ Animation (All Cards Together)
-    gsap.fromTo(
-      faqRef.current,
-      {
-        opacity: 0,
-        y: 70,
-      },
-      {
-        opacity: 1,
-        y: 0,
-        duration: 1,
-        ease: "power4.out",
-        scrollTrigger: {
-          trigger: faqRef.current[0],
-          start: "top 80%",
-          toggleActions: "play none none none",
-          once: true,
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      /* =========================
+         Section animation
+      ========================= */
+
+      gsap.fromTo(
+        sectionRef.current,
+        {
+          opacity: 0,
+          y: 50,
         },
-      }
-    );
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top 90%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
 
-  });
+      /* =========================
+         Heading animation
+      ========================= */
 
-  return () => ctx.revert();
-}, []);
+      gsap.fromTo(
+        headingRef.current,
+        {
+          opacity: 0,
+          y: 40,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+
+      /* =========================
+         FAQ cards animation
+      ========================= */
+
+      gsap.fromTo(
+        faqRef.current,
+        {
+          opacity: 0,
+          y: 35,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.7,
+          stagger: 0.12,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: faqRef.current[0],
+            start: "top 85%",
+            toggleActions: "play none none none",
+          },
+        }
+      );
+    }, sectionRef);
+
+    return () => ctx.revert();
+  }, []);
+
   return (
-<section
+   <section
   ref={sectionRef}
-  className="relative -mt-64 bg-white py-24 md:py-32 overflow-hidden z-10"
->
-          <div className="max-w-4xl mx-auto">
-        {/* Heading */}
-
-        <div  ref={headingRef}  className="text-center mb-20">
-
-<h2
   className="
-    hidden md:block
-    mt-4
-    text-4xl
-    sm:text-5xl
-    md:text-6xl
-    lg:text-5xl
-    text-gray-900
-    font-normal
-leading-[0.95]  "
->
-  We have the answers
-  <br />
-  you're looking for
-</h2>
+    relative
+    z-10
+    w-full
+    max-w-full
+    overflow-hidden
+    bg-white
+    px-5
+    py-10
 
-  <p
-  className="
-    mt-6
-    text-gray-900
-    text-xl
-    font-bold
-    md:text-xl
-    md:font-normal
+    sm:px-6
+    sm:py-12
+
+    md:px-8
+    md:py-14
+
+    lg:px-10
+    lg:py-16
+
+    xl:py-20
   "
 >
-  Quick answers to your questions
-</p>
+      {/* =========================
+          Heading
+      ========================= */}
 
-</div>
+      <div
+        ref={headingRef}
+        className="
+          mx-auto
+          w-full
+          max-w-4xl
+          text-center
 
-          
-        </div>
+          mb-10
 
-        {/* FAQ */}
+          sm:mb-12
 
-<div className="max-w-3xl mx-auto space-y-4">
-              {faqs.map((item, index) => {
-            const isOpen = openItems.includes(index);
+          md:mb-14
 
-            return (
-              <div
-                ref={(el) => (faqRef.current[index] = el)}
-  key={index}
+          lg:mb-16
+        "
+      >
+        <h2
+          className="
+            text-3xl
+            font-normal
+            leading-[1.05]
+            tracking-tight
+            text-gray-900
+
+            sm:text-4xl
+
+            md:text-5xl
+
+            lg:text-5xl
+
+            xl:text-6xl
+          "
+        >
+          <span className="hidden md:inline">
+            We have the answers
+            <br />
+            you're looking for
+          </span>
+
+          <span className="md:hidden">
+            We have the answers
+            <br />
+            you're looking for
+          </span>
+        </h2>
+
+        <p
+          className="
+            mt-4
+            text-base
+            font-bold
+            leading-relaxed
+            text-gray-900
+
+            sm:text-lg
+
+            md:mt-5
+            md:text-xl
+            md:font-normal
+          "
+        >
+          Quick answers to your questions
+        </p>
+      </div>
+
+      {/* =========================
+          FAQ LIST
+      ========================= */}
+
+      <div
+        className="
+          mx-auto
+          w-full
+          max-w-3xl
+
+          space-y-3
+
+          sm:space-y-4
+        "
+      >
+        {faqs.map((item, index) => {
+          const isOpen = openItems.includes(index);
+
+          return (
+            <div
+              ref={(el) => {
+                faqRef.current[index] = el;
+              }}
+              key={index}
+              className="
+                group
+                w-full
+                overflow-hidden
+                rounded-2xl
+                border
+                border-[#E7E7E7]
+                bg-white
+                transition-shadow
+                duration-300
+                hover:shadow-lg
+              "
+            >
+              {/* Question */}
+              <button
+                type="button"
+                onClick={() => toggleFAQ(index)}
                 className="
-group
-rounded-2xl
-border
-border-[#E7E7E7]
-bg-white
-overflow-hidden
-transition-all
-duration-300
-hover:shadow-xl
+                  flex
+                  w-full
+                  items-center
+                  justify-between
+                  gap-4
+                  px-4
+                  py-4
+                  text-left
 
-"
+                  sm:px-5
+                  sm:py-5
+
+                  md:px-6
+                "
               >
-                <button
-                  onClick={() => toggleFAQ(index)}
+                <span
                   className="
-w-full
-flex
-justify-between
-items-center
-px-4
-md:px-5
-py-4
-text-left
-"
+                    min-w-0
+                    text-[14px]
+                    font-normal
+                    leading-relaxed
+                    text-gray-700
+
+                    sm:text-[15px]
+
+                    md:text-[18px]
+                  "
                 >
-                  <span className="
-text-[14px]
-md:text-[18px]
-font-normal
-  text-gray-700
-transition-colors
-duration-300
+                  {item.question}
+                </span>
 
-">
-                    {item.question}
-                  </span>
+                <ChevronUp
+                  size={20}
+                  strokeWidth={2}
+                  className={`
+                    shrink-0
+                    text-[#222]
+                    transition-transform
+                    duration-300
 
-                 <ChevronUp
-size={22}
-strokeWidth={2}
-className={`
-transition-all
-duration-300
-text-[#222]
-${isOpen ? "rotate-0" : "rotate-180"}
-`}
-/>
-                </button>
+                    sm:h-[22px]
+                    sm:w-[22px]
 
-                <div
-                  className={`grid transition-all duration-700
-ease-[cubic-bezier(.22,1,.36,1)] ease-in-out ${
+                    ${
+                      isOpen
+                        ? "rotate-0"
+                        : "rotate-180"
+                    }
+                  `}
+                />
+              </button>
+
+              {/* Answer */}
+              <div
+                className={`
+                  grid
+                  transition-all
+                  duration-500
+                  ease-[cubic-bezier(.22,1,.36,1)]
+
+                  ${
                     isOpen
                       ? "grid-rows-[1fr] opacity-100"
                       : "grid-rows-[0fr] opacity-0"
-                  }`}
-                >
-                  <div className="overflow-hidden">
-                    <p className="
-px-6
-md:px-8
-pb-8
-text-[14px]
-md:text-[14px]
-leading-9
-font-normal
-text-[#d81b60]
-">
-                      {item.answer}
-                    </p>
-                  </div>
+                  }
+                `}
+              >
+                <div className="min-h-0 overflow-hidden">
+                  <p
+                    className="
+                      px-5
+                      pb-5
+                      text-[13px]
+                      leading-7
+                      font-normal
+                      text-[#d81b60]
+
+                      sm:px-6
+                      sm:pb-6
+                      sm:text-[14px]
+                      sm:leading-7
+
+                      md:px-8
+                      md:pb-7
+                    "
+                  >
+                    {item.answer}
+                  </p>
                 </div>
               </div>
-            );
-          })}
-        </div>
-      
-      
+            </div>
+          );
+        })}
+      </div>
     </section>
   );
 }

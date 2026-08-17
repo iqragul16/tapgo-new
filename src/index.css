@@ -9,22 +9,28 @@ body {
   overflow-x: hidden;
 }
 
-header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 90px;
 
-  background: transparent;      /* White ki jagah transparent */
-  z-index: 9999;
-
-  backdrop-filter: blur(10px);          /* Optional */
-  -webkit-backdrop-filter: blur(10px);  /* Safari */
-}
 .hero-section {
   min-height: 100vh;
-  padding-top: 150px;
+  padding-top: 120px;
+}
+
+@media (min-width: 640px) {
+  .hero-section {
+    padding-top: 130px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: 140px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 150px;
+  }
 }
 
 .hero-title {

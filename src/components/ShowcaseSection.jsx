@@ -1,152 +1,224 @@
 import { useEffect, useRef } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import video from "../assets/firstvedio.mp4";
 
 gsap.registerPlugin(ScrollTrigger);
-import video from "../assets/firstvedio.mp4";
 
 function ShowcaseSection() {
   const sectionRef = useRef(null);
   const headingRef = useRef(null);
   const videoRef = useRef(null);
-const videoWrapperRef = useRef(null);
-useEffect(() => {
-  const ctx = gsap.context(() => {
-    const mm = gsap.matchMedia();
+  const videoWrapperRef = useRef(null);
 
-    // Desktop
-    mm.add("(min-width: 768px)", () => {
-      gsap.set(headingRef.current, {
-        scale: 1.3,
-        y: 0,
+  useEffect(() => {
+    const ctx = gsap.context(() => {
+      const mm = gsap.matchMedia();
+
+      // TABLET + DESKTOP
+      mm.add("(min-width: 768px)", () => {
+        gsap.set(headingRef.current, {
+          scale: 1.3,
+          y: 0,
+        });
+
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: "top top",
+            end: "+=1100",
+            scrub: true,
+            pin: false,
+            pinSpacing: true,
+            invalidateOnRefresh: true,
+          },
+        });
+
+        tl.to(
+          headingRef.current,
+          {
+            scale: 1,
+            y: -100,
+            ease: "none",
+          },
+          0
+        );
+
+        tl.to(
+          videoRef.current,
+          {
+            width: "100%",
+            borderRadius: "0px",
+            ease: "none",
+          },
+          0
+        );
+
+        tl.to(
+          videoWrapperRef.current,
+          {
+            y: -120,
+            ease: "none",
+          },
+          0
+        );
+
+        return () => {
+          tl.scrollTrigger?.kill();
+          tl.kill();
+        };
       });
 
-      const tl = gsap.timeline({
-        scrollTrigger: {
-          trigger: sectionRef.current,
-          start: "top top",
-          end: "+=1500",
-          scrub: true,
-          pin: false,
-          pinSpacing: true,
-          invalidateOnRefresh: true,
-        },
+      // MOBILE
+      mm.add("(max-width: 767px)", () => {
+        gsap.set(
+          [
+            headingRef.current,
+            videoRef.current,
+            videoWrapperRef.current,
+          ],
+          {
+            clearProps: "all",
+          }
+        );
       });
+    }, sectionRef);
 
-      tl.to(
-        headingRef.current,
-        {
-          scale: 1,
-          y: -100,
-          ease: "none",
-        },
-        0
-      );
+    return () => ctx.revert();
+  }, []);
 
-      tl.to(
-        videoRef.current,
-        {
-          width: "100%",
-          borderRadius: "0px",
-          ease: "none",
-        },
-        0
-      );
-
-      tl.to(
-        videoWrapperRef.current,
-        {
-          y: -120,
-          ease: "none",
-        },
-        0
-      );
-    });
-
-    // Mobile
-    mm.add("(max-width: 767px)", () => {
-      gsap.set(videoWrapperRef.current, {
-        clearProps: "all",
-      });
-
-      gsap.set(videoRef.current, {
-        clearProps: "all",
-      });
-    });
-  }, sectionRef);
-
-  return () => {
-    ctx.revert();
-  };
-}, []);
   return (
-   <section
-  ref={sectionRef}
-  className="relative bg-white min-h-[1650px] pt-24 md:pt-36 lg:pt-44 pb-20 md:pb-32"
->
-  <div className="sticky top-0 h-screen flex flex-col justify-center overflow-hidden">
-
-    {/* Big Heading */}
-    <div
-      ref={headingRef}
-      className="w-full flex justify-center relative z-10"
-    >
-      <h1
-        className="
-          text-center
-          font-black
-          uppercase
-          leading-none
-          tracking-tight
-          text-[22vw]
-          md:text-[18vw]
-          lg:text-[16vw]
-          xl:text-[15vw]
-          select-none
-        "
-      >
-        TAPGO
-      </h1>
-    </div>
-
-    {/* Video */}
-    <div
-      ref={videoWrapperRef}
+    <section
+      ref={sectionRef}
       className="
-        relative
-        mt-6
-        md:-mt-16
-        lg:-mt-20
-        flex
-        justify-center
-        z-20
+        w-full
+        max-w-[100vw]
+        overflow-hidden
+        bg-white
+
+        min-h-0
+        px-4
+        pt-8
+        pb-8
+
+        sm:px-6
+        sm:pt-10
+        sm:pb-10
+
+        md:min-h-[1050px]
+        md:px-8
+        md:pt-30
+        md:pb-12
+
+        lg:min-h-[1150px]
+        lg:px-10
+        lg:pt-32
+        lg:pb-16
+
+        xl:min-h-[1200px]
       "
     >
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
+      {/* Mobile/Tablet/Desktop Content */}
+      <div
         className="
-          w-[92%]
-          md:w-[70%]
-          rounded-3xl
-          md:rounded-[35px]
-          object-cover
-          shadow-2xl
-          h-[220px]
-          sm:h-[300px]
-          md:h-[420px]
-          lg:h-[600px]
+          flex
+          w-full
+          max-w-full
+          flex-col
+          items-center
+          justify-center
+
+          md:sticky
+          md:top-0
+          md:h-screen
+          md:overflow-hidden
         "
       >
-        <source src={video} type="video/mp4" />
-      </video>
-    </div>
+        {/* Heading */}
+        <div
+          ref={headingRef}
+          className="
+            relative
+            z-10
+            flex
+            w-full
+            max-w-full
+            justify-center
+          "
+        >
+          <h1
+            className="
+              w-full
+              text-center
+              font-black
+              uppercase
+              leading-none
+              tracking-tight
+              text-[22vw]
+              select-none
 
-  </div>
-</section>
+              sm:text-[20vw]
+
+              md:text-[18vw]
+              lg:text-[16vw]
+              xl:text-[15vw]
+            "
+          >
+            TAPGO
+          </h1>
+        </div>
+
+        {/* Video */}
+        <div
+          ref={videoWrapperRef}
+          className="
+            relative
+            z-20
+            mt-5
+            flex
+            w-full
+            max-w-full
+            justify-center
+
+            sm:mt-6
+
+            md:-mt-16
+            lg:-mt-20
+          "
+        >
+          <video
+            ref={videoRef}
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="
+              block
+              h-[220px]
+              w-[92%]
+              max-w-full
+              rounded-2xl
+              object-cover
+              shadow-2xl
+
+              sm:h-[280px]
+              sm:w-[90%]
+              sm:rounded-3xl
+
+              md:h-[420px]
+              md:w-[70%]
+              md:rounded-[35px]
+
+              lg:h-[550px]
+
+              xl:h-[600px]
+            "
+          >
+            <source src={video} type="video/mp4" />
+          </video>
+        </div>
+      </div>
+    </section>
   );
 }
 

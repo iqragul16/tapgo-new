@@ -11,7 +11,7 @@ function AboutUs() {
     "At TapGo, we're revolutionizing the restaurant industry with",
     "smart, hardware-free ordering solutions. From self service",
     "kiosks to mobile QR ordering, we help businesses serve",
-    "faster and smarter.No setup fees, no hardware costs",
+    "faster and smarter. No setup fees, no hardware costs",
     "just seamless digital tools that grow with your business.",
     "Whether you're a café, restaurant, or food court,",
     "TapGo simplifies operations and boosts customer satisfaction.",
@@ -19,6 +19,8 @@ function AboutUs() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      if (!textRef.current) return;
+
       const letters = textRef.current.querySelectorAll(".letter");
 
       gsap.fromTo(
@@ -35,31 +37,61 @@ function AboutUs() {
             start: "top 80%",
             end: "bottom 35%",
             scrub: true,
+            invalidateOnRefresh: true,
           },
         }
       );
+
+      // Recalculate animation positions after layout is ready
+      requestAnimationFrame(() => {
+        ScrollTrigger.refresh();
+      });
     }, textRef);
 
-    return () => ctx.revert();
+    return () => {
+      ctx.revert();
+    };
   }, []);
 
   return (
-    <section className="w-full px-5 py-16 sm:px-8 sm:py-20 lg:px-10 lg:py-24">
-      <div className="mx-auto w-full max-w-6xl">
+    <section
+  className="
+    w-full
+    px-5
+    py-8
+
+    sm:px-6
+    sm:py-10
+
+    md:px-8
+    md:py-4
+
+    lg:px-10
+    lg:py-8
+
+    xl:py-10
+  "
+>
+      <div className="mx-auto w-full max-w-6xl min-w-0">
 
         {/* Heading */}
         <h2
           className="
-            mb-8
+            mb-5
             text-center
             text-3xl
             font-normal
             leading-tight
             tracking-tight
             text-gray-900
-            sm:mb-10
+
+            sm:mb-6
             sm:text-4xl
+
+           md:mb-5
             md:text-5xl
+
+           lg:mb-6
             lg:text-5xl
           "
         >
@@ -73,6 +105,8 @@ function AboutUs() {
             mx-auto
             w-full
             max-w-5xl
+            min-w-0
+            overflow-hidden
             text-center
           "
         >
@@ -80,14 +114,16 @@ function AboutUs() {
             <p
               key={index}
               className="
-                text-[17px]
+                m-0
+                w-full
+                max-w-full
+                text-[clamp(12px,2.4vw,36px)]
                 font-normal
-                leading-[1.45]
+                leading-[1.4]
                 text-black
-                sm:text-xl
-                sm:leading-[1.4]
-                md:text-2xl
-                lg:text-4xl
+
+                sm:leading-[1.35]
+                md:leading-[1.3]
                 lg:leading-[1.15]
               "
             >

@@ -29,9 +29,8 @@ function Navbar() {
   return (
     <>
       {/* Header */}
-<header className="fixed top-0 left-0 right-0 z-[10000] bg-transparent">
-<div className="w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between box-border">          {/* Logo */}
-          <Link
+<header className="fixed top-0 left-0 w-full z-[10000] bg-transparent">
+  <div className="w-full max-w-[1400px] mx-auto px-4 sm:px-5 lg:px-6 h-20 flex items-center justify-between box-border">          <Link
             to="/"
             className="text-2xl font-bold shrink-0"
           >
@@ -39,8 +38,9 @@ function Navbar() {
           </Link>
 
           {/* Desktop Menu */}
-<div className="hidden md:flex items-center gap-4 lg:gap-8">
-<nav className="flex items-center gap-2 lg:gap-5 text-sm font-medium">              <Link
+<div className="hidden sm:flex items-center gap-2 lg:gap-5 xl:gap-8 min-w-0">
+<nav className="flex items-center gap-2 lg:gap-5 text-sm font-medium">
+             <Link
                 to="/"
                 className="px-3 lg:px-4 py-2 rounded-md transition-all duration-300 hover:bg-black hover:text-white"
               >
@@ -123,8 +123,7 @@ function Navbar() {
           </div>
 
           {/* Mobile Right */}
-          <div className="flex md:hidden items-center gap-3 sm:gap-4">
-
+<div className="flex sm:hidden items-center gap-3">
             {/* Mobile Language */}
             <div className="relative">
 
@@ -185,8 +184,7 @@ function Navbar() {
 
       {/* Mobile Menu */}
       {menuOpen && (
-<div className="fixed top-20 left-0 right-0 w-auto bg-white/95 backdrop-blur-md shadow-lg px-4 sm:px-6 py-5 z-[9999] md:hidden">
-          <nav className="flex flex-col">
+<div className="fixed top-20 left-0 right-0 w-auto bg-white/95 backdrop-blur-md shadow-lg px-4 py-5 z-[9999] sm:hidden">          <nav className="flex flex-col">
 
             <Link
               to="/"

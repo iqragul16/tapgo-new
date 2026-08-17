@@ -8,7 +8,7 @@ import ShowcaseSection from "../components/ShowcaseSection";
 import ImgSection from "../components/ImgSection";
 import OrbitSection from "../components/OrbitSection";
 import TestimonialSection from "../components/TestimonialSection";
-import HorizontalCardsSection from "../components/HorizontalCardsSection";
+// import HorizontalCardsSection from "../components/HorizontalCardsSection";
 import FAQ from "../components/FAQ";
 import ContactSection from "../components/ContactSection";
 import FooterCTA from "../components/FooterCTA";
@@ -18,19 +18,19 @@ function Home() {
     <>
       <Navbar />
       <NextSection />
-      <AboutUs />
-      <WhyChoose />
-      <AdvantageSection />
-      <Section />
-      <ShowcaseSection />
-      <ImgSection />
-      <OrbitSection />
-      <TestimonialSection />
-      <HorizontalCardsSection />
-      <FAQ />
 
+      <AboutUs /> 
+       <WhyChoose />
+       <AdvantageSection />
+        <Section />
+      <ShowcaseSection />
+       <ImgSection />
+       <OrbitSection />
+      <TestimonialSection />
+       {/* <HorizontalCardsSection /> */}
+       <FAQ />
       <ContactSection />
-      <FooterCTA />
+      <FooterCTA />          
     </>
   );
 }
