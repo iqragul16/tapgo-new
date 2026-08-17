@@ -1,5 +1,5 @@
 import Navbar from "../components/Navbar/Navbar";
-import KioskPage from "../components/Kiosk/KioskPage";
+import KioskPage from "../components/kiosk/KioskPage";
 import LogoSlider from "../components/pricing/LogoSlider";
 import KioskBenefits from "../components/kiosk/KioskBenefits";
 import KioskAdvantages from "../components/kiosk/KioskAdvantages";
