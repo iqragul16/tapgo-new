@@ -66,7 +66,7 @@ function NextSection() {
             lg:mb-12
           `}
         >
-          Tap. Order. Go.
+          Tap<span style={{ color: "#441212" }}>. Order.</span> Go.
         </h1>
 
         {/* Kiosk Image */}

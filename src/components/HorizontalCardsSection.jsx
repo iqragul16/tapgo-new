@@ -149,7 +149,11 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
   const stripX = startX + (endX - startX) * eased;
 
   return (
-    <section ref={sectionRef} className="relative w-full bg-white" style={{ height: "600vh" }}>
+  <section
+  ref={sectionRef}
+  className="relative w-full overflow-x-clip bg-white"
+  style={{ height: "600vh" }}
+>
       <style>{`
         @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
         .tg-serif { font-family: 'Fraunces', serif; }
@@ -157,7 +161,7 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
         .tg-mono { font-family: 'JetBrains Mono', monospace; }
       `}</style>
 
-      <div className="sticky top-0 h-screen w-full overflow-hidden bg-white">
+      <div className="sticky top-0 h-screen w-full overflow-x-hidden overflow-y-hidden bg-white">
         {/* Heading — pinned below the navbar for the whole scroll, never fades */}
         <div
           className="absolute left-1/2 w-[86%] max-w-xl -translate-x-1/2 text-center"
@@ -184,8 +188,8 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
 
         {/* Filmstrip track — clips the strip to the viewport width, with a soft edge fade */}
         <div
-          className="
-    absolute left-0
+  className="
+    absolute left-0 right-0
     top-[48%]
     sm:top-[45%]
     md:top-[56%]
@@ -193,7 +197,7 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
     w-full
     -translate-y-1/2
     overflow-hidden
-"
+  "
           style={{
             WebkitMaskImage:
               "linear-gradient(to right, transparent, black 6%, black 94%, transparent)",
@@ -205,8 +209,9 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
             ref={stripRef}
             className="flex w-max items-center gap-6 sm:gap-7 md:gap-8"
             style={{
-              transform: `translateX(${stripX}px)`,
-              transition: "transform 0.05s linear",
+             transform: `translate3d(${stripX}px, 0, 0)`,
+transition: "transform 0.05s linear",
+willChange: "transform",
             }}
           >
             {FEATURES.map((f, i) => (
@@ -222,14 +227,14 @@ export default function HorizontalCardsSection({ navbarHeight = 0 }) {
 function Card({ feature, index }) {
   return (
 <div
- className="
- relative flex-shrink-0 overflow-hidden rounded-[14px]
- w-[200px] h-[280px]
- sm:w-[240px] sm:h-[330px]
- md:w-[280px] md:h-[390px]
- lg:w-[320px] lg:h-[440px]
- shadow-[0_20px_45px_rgba(0,0,0,0.18)]
- "
+  className="
+    relative flex-shrink-0 overflow-hidden rounded-[14px]
+    w-[200px] h-[280px]
+    sm:w-[240px] sm:h-[330px]
+    md:w-[280px] md:h-[390px]
+    lg:w-[320px] lg:h-[440px]
+    shadow-[0_20px_45px_rgba(0,0,0,0.18)]
+  "
 >      <img
         src={feature.image}
         alt={feature.title}
