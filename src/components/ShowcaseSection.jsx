@@ -35,14 +35,14 @@ function ShowcaseSection() {
         });
 
         tl.to(
-          headingRef.current,
-          {
-            scale: 1,
-            y: -100,
-            ease: "none",
-          },
-          0
-        );
+  headingRef.current,
+  {
+    scale: 1,
+    y: -70,
+    ease: "none",
+  },
+  0
+);
 
         tl.to(
           videoRef.current,
@@ -88,52 +88,51 @@ function ShowcaseSection() {
   }, []);
 
   return (
-    <section
-      ref={sectionRef}
-      className="
-        w-full
-        max-w-[100vw]
-        overflow-hidden
-        bg-white
+   <section
+  ref={sectionRef}
+  className="
+    w-full
+    max-w-[100vw]
+    overflow-hidden
+    bg-white
 
-        min-h-0
-        px-4
-        pt-8
-        pb-8
+    min-h-0
+    px-4
+    pt-8
+    pb-8
 
-        sm:px-6
-        sm:pt-10
-        sm:pb-10
+    sm:px-6
+    sm:pt-10
+    sm:pb-10
 
-        md:min-h-[1050px]
-        md:px-8
-        md:pt-30
-        md:pb-12
+    md:min-h-[850px]
+    md:px-8
+    md:pt-20
+    md:pb-8
 
-        lg:min-h-[1150px]
-        lg:px-10
-        lg:pt-32
-        lg:pb-16
+    lg:min-h-[900px]
+    lg:px-10
+    lg:pt-24
+    lg:pb-8
 
-        xl:min-h-[1200px]
-      "
-    >
+    xl:min-h-[950px]
+  "
+>
       {/* Mobile/Tablet/Desktop Content */}
       <div
-        className="
-          flex
-          w-full
-          max-w-full
-          flex-col
-          items-center
-          justify-center
+  className="
+    flex
+    w-full
+    max-w-full
+    flex-col
+    items-center
+    justify-center
 
-          md:sticky
-          md:top-0
-          md:h-screen
-          md:overflow-hidden
-        "
-      >
+    md:sticky
+    md:top-0
+    md:h-screen
+  "
+>
         {/* Heading */}
         <div
           ref={headingRef}
@@ -170,52 +169,52 @@ function ShowcaseSection() {
 
         {/* Video */}
         <div
-          ref={videoWrapperRef}
-          className="
-            relative
-            z-20
-            mt-5
-            flex
-            w-full
-            max-w-full
-            justify-center
+  ref={videoWrapperRef}
+  className="
+    relative
+    z-20
+    mt-5
+    flex
+    w-full
+    max-w-full
+    justify-center
 
-            sm:mt-6
+    sm:mt-6
 
-            md:-mt-16
-            lg:-mt-20
-          "
-        >
+    md:-mt-16
+    lg:-mt-20
+  "
+>
           <video
-            ref={videoRef}
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="
-              block
-              h-[220px]
-              w-[92%]
-              max-w-full
-              rounded-2xl
-              object-cover
-              shadow-2xl
+  ref={videoRef}
+  autoPlay
+  muted
+  loop
+  playsInline
+ className="
+  block
+  h-[260px]
+  w-[40%]
+  max-w-full
+  rounded-[18px]
+  object-cover
+  shadow-2xl
 
-              sm:h-[280px]
-              sm:w-[90%]
-              sm:rounded-3xl
+  sm:h-[320px]
+  sm:w-[60%]
+  sm:rounded-3xl
 
-              md:h-[420px]
-              md:w-[70%]
-              md:rounded-[35px]
+  md:h-[420px]
+  md:w-[60%]
+  md:rounded-[35px]
 
-              lg:h-[550px]
+  lg:h-[500px]
 
-              xl:h-[600px]
-            "
-          >
-            <source src={video} type="video/mp4" />
-          </video>
+  xl:h-[550px]
+"
+>
+  <source src={video} type="video/mp4" />
+</video>
         </div>
       </div>
     </section>

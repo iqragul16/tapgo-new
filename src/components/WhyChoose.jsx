@@ -19,7 +19,7 @@ const FEATURES = [
   {
     title: "Case",
     description:
-      "Milled from a single block of grade-5 titanium — half the weight of steel, twice the resistance to the elements it's built to survive.",
+      "Milled from a single block of grade 5 titanium half the weight of steel, twice the resistance to the elements it's built to survive.",
   },
   {
     title: "Crystal",

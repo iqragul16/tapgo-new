@@ -102,7 +102,7 @@ function CompareSection() {
     <div className="flex items-start gap-3">
       <X className="text-red-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        Do-it-yourself installation or expensive technical support
+        Do it yourself installation or expensive technical support
       </p>
     </div>
 
@@ -128,35 +128,35 @@ function CompareSection() {
     <div className="flex items-start gap-3">
       <Check className="text-green-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        CHF 0 — Free equipment worth CHF 8,000+
+        CHF 0 Free equipment worth CHF 8,000+
       </p>
     </div>
 
     <div className="flex items-start gap-3">
       <Check className="text-green-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        No subscription — Pay only per order
+        No subscription Pay only per order
       </p>
     </div>
 
     <div className="flex items-start gap-3">
       <Check className="text-green-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        CHF 0.50/order — Capped at CHF 99/month
+        CHF 0.50/order Capped at CHF 99/month
       </p>
     </div>
 
     <div className="flex items-start gap-3">
       <Check className="text-green-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        Fully managed — No coding required, available in 2 weeks
+        Fully managed No coding required, available in 2 weeks
       </p>
     </div>
 
     <div className="flex items-start gap-3">
       <Check className="text-green-500 mt-1 shrink-0" size={16} />
       <p className="text-sm md:text-base leading-relaxed text-gray-700">
-        Simple, flat-rate pricing with no surprises
+        Simple, flat rate pricing with no surprises
       </p>
     </div>
 

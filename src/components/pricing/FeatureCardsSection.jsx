@@ -14,19 +14,19 @@ const CARDS = [
   {
     title: "Reader",
     description:
-      "A fast, reliable reader device built for everyday checkout flows — simple to set up and effortless to use.",
+      "A fast, reliable reader device built for everyday checkout flows simple to set up and effortless to use.",
     image: readerImg,
   },
   {
     title: "Kiosk",
     description:
-      "A self-service kiosk that lets customers order and pay on their own, reducing wait times and freeing up staff.",
+      "A self service kiosk that lets customers order and pay on their own, reducing wait times and freeing up staff.",
     image: kioskImg,
   },
   {
     title: "Dashboard",
     description:
-      "A clean, real-time dashboard that gives you full visibility into sales, orders, and performance at a glance.",
+      "A clean, real time dashboard that gives you full visibility into sales, orders, and performance at a glance.",
     image: dashboardImg,
   },
   {

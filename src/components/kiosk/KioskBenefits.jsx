@@ -51,25 +51,27 @@ export default function KioskBenefits() {
     <section className="w-full px-5 py-24">
       {/* Heading */}
       <div className="mx-auto mb-12 max-w-6xl text-center">
-        <h1
+      <h1
   className="
     font-sans
-    text-[62px]
+    text-[32px]
+    md:text-[62px]
     font-normal
     leading-[1.1]
-    tracking-[-2px]
+    tracking-[-1px]
+    md:tracking-[-2px]
     text-black
     text-center
   "
 >
   Boost your restaurant's success with
-  <br />
+  <br className="hidden md:block" />
   TapGo's Self-Ordering Kiosk
 </h1>
 
         <p className="mx-auto mt-4 max-w-6xl text-center font-sans text-[14px] font-normal leading-6 text-neutral-600">
   Provide customers with exclusive online offers, enable direct ordering, and streamline transactions. Our sleek kiosks facilitate in-person orders,
-  <br />
+  <br  className="hidden md:block"/>
   automate payments, and allow one manager to oversee multiple units, enhancing efficiency while optimizing space.
 </p>
       </div>

@@ -11,25 +11,25 @@ function AdvantageSection() {
       icon: <FaDraftingCompass size={20} />,
       title: "Designed to Fit You",
       description:
-        "TapGo’s kiosk solution is built to adapt to your restaurant’s unique needs—no matter the size or style. Whether you run a cozy coffee shop, a bustling fast food outlet, or a multi-location franchise, our system is tailored to fit your operations seamlessly. With flexible configuration and no setup hassle, TapGo makes it easy to scale smartly.",
+        "TapGo’s kiosk solution is built to adapt to your restaurant’s unique needs no matter the size or style. Whether you run a cozy coffee shop, a bustling fast food outlet, or a multi-location franchise, our system is tailored to fit your operations seamlessly. With flexible configuration and no setup hassle, TapGo makes it easy to scale smartly.",
     },
     {
       icon: <FaShoppingCart size={20} />,
       title: "Smooth Ordering Flow",
       description:
-        "With over three years of refinement, TapGo offers an intuitive, distraction-free ordering experience. The system guides customers through each step with clarity and speed, reducing confusion and ensuring faster service. It’s designed to keep lines moving and customers satisfied—every time.",
+        "With over three years of refinement, TapGo offers an intuitive, distraction-free ordering experience. The system guides customers through each step with clarity and speed, reducing confusion and ensuring faster service. It’s designed to keep lines moving and customers satisfied every time.",
     },
     {
       icon: <FaCreditCard size={20} />,
       title: "Effortless Payments",
       description:
-        "TapGo supports seamless, fully integrated payment options—including cards, Apple Pay, Google Pay, and Payconiq. Transactions are quick and contactless, eliminating the need for cash handling and reducing wait times. It's a smoother, safer way to pay—for both staff and customers.",
+        "TapGo supports seamless, fully integrated payment options including cards, Apple Pay, Google Pay, and Payconiq. Transactions are quick and contactless, eliminating the need for cash handling and reducing wait times. It's a smoother, safer way to pay for both staff and customers.",
     },
     {
       icon: <FaCog size={20} />,
       title: "Custom Look & Feel",
       description:
-        "Your brand deserves to shine through every detail—and with TapGo, it does. We fully customize the kiosk’s exterior design and user interface to reflect your restaurant’s unique identity. From branding to layout, everything feels like a natural extension of your space and style.",
+        "Your brand deserves to shine through every detail and with TapGo, it does. We fully customize the kiosk’s exterior design and user interface to reflect your restaurant’s unique identity. From branding to layout, everything feels like a natural extension of your space and style.",
     },
   ];
 

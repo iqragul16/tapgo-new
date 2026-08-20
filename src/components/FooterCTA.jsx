@@ -14,7 +14,7 @@ export default function FooterCTA() {
 
         {/* Description */}
         <p className="mt-6 max-w-lg text-base leading-relaxed text-gray-500 md:text-lg">
-          Transform your restaurant with TapGo — No <br />
+          Transform your restaurant with TapGo No <br />
           equipment costs!
         </p>
 

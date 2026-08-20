@@ -95,7 +95,8 @@ export default function KioskAdvantages() {
 
       <p className="mx-auto mt-4 max-w-6xl text-center font-sans text-[14px] font-normal leading-6 text-neutral-500">
  Transform your restaurant experience with TapGo Kiosk. Enjoy increased efficiency, improved customer satisfaction, cost savings, and scalable 
- <br/>solutions for streamlined operations and enhanced profitability.
+ <br className="hidden md:block"/>
+ solutions for streamlined operations and enhanced profitability.
 </p>
       </div>
 
